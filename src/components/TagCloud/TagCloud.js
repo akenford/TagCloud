@@ -6,6 +6,7 @@ import { Tag } from '../../components/Tag/Tag'
 
 // utills
 import Fetch from "../../utills/Fetch/Fetch";
+import Utils from "../../utills/Utills/Utills"
 
 class TagCloud extends PureComponent {
     constructor() {
@@ -14,7 +15,6 @@ class TagCloud extends PureComponent {
             isLoaded:false,
             dataFromApi:[]
         };
-        this.baseFont = 14;
     }
     componentDidMount() {
         let apiCall = new Fetch;
@@ -29,10 +29,20 @@ class TagCloud extends PureComponent {
     }
     renderTags() {
         let { dataFromApi } = this.state;
+        
+        let maxSantimentValue = Math.max.apply(Math, dataFromApi.map((o) => { return o.sentimentScore; }))
+        let minSantimentValue = Math.min.apply(Math, dataFromApi.map((o) => { return o.sentimentScore; }))
 
         return dataFromApi.map((item, i) => {
+            
             return (
-                <Tag fontSize={item.sentimentScore * this.baseFont / 100 + (this.baseFont * 2)} data={item} key={i} routeTo={item.id} name={item.label}/>
+                <Tag 
+                    key={i}
+                    fontSize={Utils.fontCalculation(item.sentimentScore, maxSantimentValue, minSantimentValue)} 
+                    data={item}  
+                    routeTo={item.id} 
+                    name={item.label}
+                />
             ) 
         })
     }

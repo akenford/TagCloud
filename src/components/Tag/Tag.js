@@ -9,7 +9,7 @@ export const Tag = (props) => {
 
     return (
         <div className="tag">
-            <Link style={{fontSize:`${fontSize}px`}} to={`/${routeTo}`}>{name}</Link>
+            <Link style={{fontSize}} to={`/${routeTo}`}>{name}</Link>
         </div>
     )
 };
