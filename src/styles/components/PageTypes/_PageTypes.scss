@@ -1,6 +1,28 @@
 .page-type {
-    width: 25%;
+    width: 23%;
     height: 100px;
     background: black;
     text-align: center;
+    margin: 10px;
+
+    & .page-type-item {
+        margin: 25px 0 0 0;
+        user-select: none;
+
+        & .value {
+            border-radius: 50%;
+            color: white;
+            padding: 0 5px;
+            font-size: 1.3em;
+            line-height: 18px;
+            text-align: center;
+            font-weight: 400;
+        }
+        & .name {
+            font-size: 1.2em;
+            display: block;
+            margin: 5px 0 0 0;
+            font-weight: 400;
+        }
+    }
 }

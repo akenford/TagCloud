@@ -1,11 +1,32 @@
-
-
-
-
-.page-types-container {
+.tag-info {
     width: 100%;
-    margin: 20px 0 0 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    &-caption, h3 {
+        font-size: 3em;
+        font-weight: 700;
+        text-align: center;
+        margin:15px 0;
+    }
+
+    & .page-types-container {
+        width: 100%;
+        margin: 20px 0 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    & .mentions-container {
+        width: 100%;
+        margin: 20px 0 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    & h3 {
+        font-size: 1.5em;
+        font-weight: 400;
+    }
 }
+
+
+

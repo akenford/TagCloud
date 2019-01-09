@@ -5,7 +5,6 @@ import React, { PureComponent, Fragment } from "react";
 import Layout from '../../containers/Layout/Layout'
 
 // components
-import { Header }  from '../../components/Header/Header'
 import TagInfo from '../../components/TagInfo/TagInfo'
 
 class TagPage extends PureComponent {

@@ -1,4 +1,3 @@
-import axios from 'axios'
 
 export default class Fetch {
     
@@ -11,6 +10,6 @@ export default class Fetch {
          })
            .catch( error => 
                console.log(error)
-            );
+           );
     }
 }

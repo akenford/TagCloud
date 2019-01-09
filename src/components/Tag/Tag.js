@@ -3,19 +3,13 @@ import React, { PureComponent } from "react";
 // router
 import { Link } from "react-router-dom";
 
+export const Tag = (props) => {
 
-class Tag extends PureComponent {
+    let { routeTo, name, fontSize} = props;
 
-    render() {
-      
-        let { routeTo, name} = this.props;
-
-        return (
-            <div className="tag">
-                <Link to={`/${routeTo}`}>{name}</Link>
-            </div>
-        );
-    }
-}
-
-export default Tag;
+    return (
+        <div className="tag">
+            <Link style={{fontSize:`${fontSize}px`}} to={`/${routeTo}`}>{name}</Link>
+        </div>
+    )
+};
