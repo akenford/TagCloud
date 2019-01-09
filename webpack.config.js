@@ -1,11 +1,14 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const htmlPlugin = new HtmlWebpackPlugin({
+  template: "./src/index.html"
+});
 
 module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "index-bundle.js"
+    filename: "bundle.js"
   },
   module: {
     rules: [
@@ -15,14 +18,15 @@ module.exports = {
         use: ["babel-loader"]
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"]
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
       }
     ]
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html"
-    })
+    htmlPlugin
   ]
 };

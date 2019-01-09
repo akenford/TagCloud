@@ -1,0 +1,33 @@
+.tag {
+    margin: 10px;
+   
+    & a {
+        text-decoration: none;
+        padding: 5px 15px;
+        color:#fff;
+        text-transform: lowercase;
+        font-size: 1em;
+        border-radius: 50px;
+        background: linear-gradient(90deg, #c55eff,#5fc8ff);
+
+        &:hover {
+            color:#000;
+        }
+    }
+
+    &:nth-of-type(3n + 1) {
+        & a {
+            font-size: 1.25em;
+        }
+    }
+    &:nth-of-type(4n+3) {
+        & a {
+            font-size: 1.5em;
+        }
+    }
+    &:nth-of-type(5n - 3) {
+        & a {
+            font-size: 1em;
+        }  
+    }
+}
