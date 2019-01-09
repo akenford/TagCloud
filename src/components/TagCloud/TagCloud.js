@@ -36,13 +36,13 @@ class TagCloud extends PureComponent {
         return dataFromApi.map((item, i) => {
             
             return (
-                <Tag 
-                    key={i}
-                    fontSize={Utils.fontCalculation(item.sentimentScore, maxSantimentValue, minSantimentValue)} 
-                    data={item}  
-                    routeTo={item.id} 
-                    name={item.label}
-                />
+                    <Tag 
+                        key={i}
+                        fontSize={Utils.fontCalculation(item.sentimentScore, maxSantimentValue, minSantimentValue)} 
+                        data={item}  
+                        routeTo={item.id} 
+                        name={item.label}
+                    />
             ) 
         })
     }
