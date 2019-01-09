@@ -14,8 +14,6 @@ const Utils = {
             let fontSize = score == minSantimentValue ? fontMin
             : (score / maxSantimentValue) * (fontMax - fontMin) + fontMin;
 
-            console.log(fontSize + unit);
-
            return fontSize + unit;
     },
 };
