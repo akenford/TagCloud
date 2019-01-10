@@ -7,14 +7,17 @@ import Layout from '../../containers/Layout/Layout'
 // components
 import { Header }  from '../../components/Header/Header'
 import TagCloud from '../../components/TagCloud/TagCloud'
+import Searchbar from '../../components/SearchBar/SearchBar'
 
 class HomePage extends PureComponent {
     
     render() {
     return (
         <Fragment>
-            <Header/>
             <Layout>
+                <Header>
+                    <Searchbar/>
+                </Header>
                 <TagCloud/>
             </Layout>
         </Fragment>

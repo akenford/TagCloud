@@ -9,9 +9,11 @@ const Utils = {
         fontMax = 120,
         unit= 'px'
         ) => {
+        
+
             // formula from https://en.wikipedia.org/wiki/Tag_cloud
 
-            let fontSize = score == minSantimentValue ? fontMin
+            let fontSize = score === minSantimentValue ? fontMin
             : (score / maxSantimentValue) * (fontMax - fontMin) + fontMin;
 
            return fontSize + unit;

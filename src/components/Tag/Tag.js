@@ -3,9 +3,7 @@ import React, { PureComponent } from "react";
 // router
 import { Link } from "react-router-dom";
 
-export const Tag = (props) => {
-
-    let { routeTo, name, fontSize} = props;
+export const Tag = ({ routeTo, name, fontSize}) => {
 
     return (
         <div className="tag">

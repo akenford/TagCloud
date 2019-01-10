@@ -30,8 +30,8 @@ class TagCloud extends PureComponent {
     renderTags() {
         let { dataFromApi } = this.state;
         
-        let maxSantimentValue = Math.max.apply(Math, dataFromApi.map((o) => { return o.sentimentScore; }))
-        let minSantimentValue = Math.min.apply(Math, dataFromApi.map((o) => { return o.sentimentScore; }))
+        let maxSantimentValue = Math.max.apply(Math, dataFromApi.map((o) => { return o.sentimentScore; }));
+        let minSantimentValue = Math.min.apply(Math, dataFromApi.map((o) => { return o.sentimentScore; }));
 
         return dataFromApi.map((item, i) => {
             

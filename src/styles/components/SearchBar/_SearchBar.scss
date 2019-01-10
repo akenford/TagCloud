@@ -1,0 +1,16 @@
+ .search-bar {
+   height: 100%;
+   width: 100%;
+
+   &--search {
+     height: 100%;
+     border: none;
+     width: 100%;
+     outline: none;
+     background-color: transparent;
+     font-size: 3.8em;
+     font-weight: 700;
+     color:#fff;
+     padding: 0 0 0 25px;
+   }
+ }
