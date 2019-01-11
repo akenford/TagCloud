@@ -2,6 +2,31 @@
 import React from 'react';
 import { render } from 'react-dom';
 
+// redux
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+
+// reducer
+import mainReducer from './reducers';
+
+// logger
+import logger from 'redux-logger'
+
+// app
 import App from './App'
 
-render(<App/>,document.getElementById("root"));
+// store
+const store = createStore(
+    mainReducer,
+    applyMiddleware(
+        logger,
+        thunk
+    )
+);
+
+render(
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    document.getElementById("root"));

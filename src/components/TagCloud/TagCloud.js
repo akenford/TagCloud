@@ -1,44 +1,36 @@
 // react
 import React, { PureComponent, Fragment } from "react";
 
+// redux
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+// actions
+import * as apiActions from '../../actions/api-actions'
+
 // components
 import { Tag } from '../../components/Tag/Tag'
 
 // utills
-import Fetch from "../../utills/Fetch/Fetch";
 import Utils from "../../utills/Utills/Utills"
 
-class TagCloud extends PureComponent {
-    constructor() {
-        super();
-        this.state = {
-            isLoaded:false,
-            dataFromApi:[]
-        };
-    }
-    componentDidMount() {
-        let apiCall = new Fetch;
 
-        apiCall.baseApiCall("GET", "http://5c2e44682fffe80014bd6922.mockapi.io/api/tags")
-            .then(result => {
-                this.setState({
-                    isLoaded:true,
-                    dataFromApi:result
-                })
-            });
+class TagCloud extends PureComponent {
+
+    componentDidMount() {
+        let { getTags } = this.props.apiActions;
+
+        getTags();
     }
     renderTags() {
-        let { dataFromApi } = this.state;
-        
-        let maxSantimentValue = Math.max.apply(Math, dataFromApi.map((o) => { return o.sentimentScore; }));
-        let minSantimentValue = Math.min.apply(Math, dataFromApi.map((o) => { return o.sentimentScore; }));
+        let { tags } = this.props;
 
-        return dataFromApi.map((item, i) => {
+        return tags.map((item, i) => {
             
             return (
                     <Tag 
                         key={i}
-                        fontSize={Utils.fontCalculation(item.sentimentScore, maxSantimentValue, minSantimentValue)} 
+                        fontSize={Utils.fontCalculation(tags, item.sentimentScore)}
                         data={item}  
                         routeTo={item.id} 
                         name={item.label}
@@ -48,9 +40,9 @@ class TagCloud extends PureComponent {
     }
 
     render() {
-        let { isLoaded } = this.state;
+        let { isLoaded } = this.props;
 
-        if(!isLoaded) return <div><h1>Loading....</h1></div>;
+         if(!isLoaded) return <div><h1>Loading....</h1></div>;
     
         return (
             <Fragment>
@@ -60,4 +52,17 @@ class TagCloud extends PureComponent {
     }
 }
 
-export default TagCloud;
+function mapStateToProps(state) {
+    return {
+        tags: state.TagCloud.tags,
+        isLoaded: state.isLoaded
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        apiActions: bindActionCreators(apiActions, dispatch),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TagCloud)

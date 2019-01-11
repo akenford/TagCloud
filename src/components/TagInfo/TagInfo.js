@@ -1,9 +1,6 @@
 // react
 import React, { PureComponent } from "react";
 
-// api 
-import Fetch from "../../utills/Fetch/Fetch";
-
 // components
 import { PageTypes } from '../PageTypes/PageTypes'
 import { Mention } from '../Mention/Mention'
@@ -22,15 +19,15 @@ class TagInfo extends PureComponent {
     }
     componentDidMount() {
         let decodedAString = decodeURIComponent(window.location.pathname).substr(1);
-        let apiCall = new Fetch;
-
-        apiCall.baseApiCall("GET", "http://5c2e44682fffe80014bd6922.mockapi.io/api/tags")
-             .then(result => {
-                 this.setState({
-                     isLoaded:true,
-                     itemInfo:result.find(item => item.id === decodedAString)
-                 })
-             });
+        // let apiCall = new Fetch;
+        //
+        // apiCall.baseApiCall("GET", "http://5c2e44682fffe80014bd6922.mockapi.io/api/tags")
+        //      .then(result => {
+        //          this.setState({
+        //              isLoaded:true,
+        //              itemInfo:result.find(item => item.id === decodedAString)
+        //          })
+        //      });
     }
     renderPageTypes() {
         let { itemInfo } = this.state;

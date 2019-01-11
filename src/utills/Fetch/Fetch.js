@@ -1,15 +1,17 @@
 
-export default class Fetch {
-    
-    baseApiCall(type, url) {
-        return fetch(url, {
-            method: type,
+export function fetcher(url, o) {
+
+    let options = Object.assign({
+        credentials: 'same-origin',
+        headers: {'Content-Type': 'application/json'}
+    }, o);
+
+    return fetch(url, options).then((response) => {
+
+        return response.json();
+    })
+        .then(result => {
+            return result
         })
-             .then((response) => {
-             return response.json();
-         })
-           .catch( error => 
-               console.log(error)
-           );
-    }
+        .catch(error => console.log('error in fetcher: ', error))
 }

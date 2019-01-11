@@ -2,18 +2,18 @@
 const Utils = {
 
     fontCalculation: (
+        array = [],
         score = 0,
-        maxSantimentValue = 100, 
-        minSantimentValue = 0, 
         fontMin = 14, 
         fontMax = 120,
         unit= 'px'
         ) => {
-        
 
-            // formula from https://en.wikipedia.org/wiki/Tag_cloud
+        let maxSantimentValue = Math.max.apply(Math, array.map((o) => { return o.sentimentScore; }));
+        let minSantimentValue = Math.min.apply(Math, array.map((o) => { return o.sentimentScore; }));
 
-            let fontSize = score === minSantimentValue ? fontMin
+
+        let fontSize = score === minSantimentValue ? fontMin
             : (score / maxSantimentValue) * (fontMax - fontMin) + fontMin;
 
            return fontSize + unit;

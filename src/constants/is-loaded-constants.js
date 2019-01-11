@@ -1,0 +1,2 @@
+export const ASYNC_LOADING = 'ASYNC_LOADING';
+export const ASYNC_LOADED = 'ASYNC_LOADED';
