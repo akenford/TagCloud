@@ -6,16 +6,10 @@ class Layout extends PureComponent {
     
     render() {
     return (
-        <CSSTransition
-        in={true}
-        appear={true}
-        timeout={1000}
-        classNames="fade">
-
+        <CSSTransition in={true} appear={true} timeout={1000} classNames="fade">
        <div className="layout">
             {this.props.children}
         </div>
-    
     </CSSTransition>
         
     )

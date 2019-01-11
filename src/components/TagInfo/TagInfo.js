@@ -5,65 +5,59 @@ import React, { PureComponent } from "react";
 import { PageTypes } from '../PageTypes/PageTypes'
 import { Mention } from '../Mention/Mention'
 
+// redux
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+// actions
+import * as apiActions from '../../actions/api-actions'
+
 // additional
 import { map } from 'lodash';
 
 class TagInfo extends PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            itemInfo:'',
-            isLoaded:false,
-        }
-    }
+   
     componentDidMount() {
+        let { getTagById } = this.props.apiActions;
         let decodedAString = decodeURIComponent(window.location.pathname).substr(1);
-        // let apiCall = new Fetch;
-        //
-        // apiCall.baseApiCall("GET", "http://5c2e44682fffe80014bd6922.mockapi.io/api/tags")
-        //      .then(result => {
-        //          this.setState({
-        //              isLoaded:true,
-        //              itemInfo:result.find(item => item.id === decodedAString)
-        //          })
-        //      });
-    }
-    renderPageTypes() {
-        let { itemInfo } = this.state;
 
-        return _.map(itemInfo.pageType, (qty, name) => {
-            return (
-                <PageTypes key={name} name={name} value={qty} />
-            )
-          });
+        getTagById(decodedAString);
     }
     renderTopMention() {
-        let { itemInfo } = this.state;
+        let { tag } = this.props;
+        let sum = 0;
 
-        let total = Object.values(itemInfo.sentiment).reduce((sum, currentVal) => sum + currentVal);
+        _.map(tag.sentiment, (qty) => sum += qty);
 
-
-        return <Mention name={'Total:'}  value={total}/>
+          return <Mention name={'Total:'}  value={sum}/>
     }
     renderMentions() {
-        let { itemInfo } = this.state;
+        let { tag } = this.props;
 
-        return _.map(itemInfo.sentiment, (qty, name) => {
+        return _.map(tag.sentiment, (qty, name) => {
 
             return <Mention key={name} name={name}  value={qty}/>
 
         });
     }
+    renderPageTypes() {
+        let { tag } = this.props;
+
+        return _.map(tag.pageType, (qty, name) => {
+           
+            return <PageTypes key={name} name={name} value={qty} />
+            
+          });
+    }
 
     render() {
-        let { isLoaded, itemInfo } = this.state;
+        let { isLoaded, tag } = this.props;
 
         if(!isLoaded) return <div><h1>Loading....</h1></div>;
 
     return (
         <div className="tag-info">
-            <h1 className="tag-info-caption">{itemInfo.label}</h1>
+             <h1 className="tag-info-caption">{tag.label}</h1>
             <h3>Mentions</h3>
             <div className="mentions-container">
                 {this.renderTopMention()}
@@ -78,4 +72,17 @@ class TagInfo extends PureComponent {
     }
 };
 
-export default TagInfo;
+function mapStateToProps(state) {
+    return {
+        tag: state.TagInfo.tag,
+        isLoaded: state.isLoaded
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        apiActions: bindActionCreators(apiActions, dispatch),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TagInfo)

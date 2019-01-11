@@ -19,7 +19,6 @@ class TagCloud extends PureComponent {
 
     componentDidMount() {
         let { getTags } = this.props.apiActions;
-
         getTags();
     }
     renderTags() {
