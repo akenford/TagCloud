@@ -1,8 +1,15 @@
 // react
 import React, { PureComponent } from "react"
 
+// redux
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-class SearchBar extends React.PureComponent {
+// actions
+import * as tagCloudActions from '../../actions/tag-cloud-actions'
+
+
+class SearchBar extends PureComponent {
     constructor() {
         super();
         this.state = {
@@ -11,6 +18,17 @@ class SearchBar extends React.PureComponent {
     }
 
     handleChange(e) {
+        let { filterTagByValue } = this.props.tagCloudActions;
+        let { tags } = this.props.TagCloud;
+        let filteredArray = tags.slice(0);
+
+        filteredArray = filteredArray.filter((item) => {
+            return item.label.toLowerCase().search(
+                e.target.value.toLowerCase()) !== -1;
+            });
+
+        filterTagByValue(filteredArray);
+
         this.setState({
             value:e.target.value
         })
@@ -30,4 +48,15 @@ class SearchBar extends React.PureComponent {
     }
 }
 
-export default SearchBar;
+function mapStateToProps(state) {
+    return {
+        TagCloud: state.TagCloud
+    }
+}
+function mapDispatchToProps(dispatch) {
+    return {
+        tagCloudActions: bindActionCreators(tagCloudActions, dispatch),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)

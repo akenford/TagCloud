@@ -22,9 +22,9 @@ class TagCloud extends PureComponent {
         getTags();
     }
     renderTags() {
-        let { tags } = this.props;
+        let { filteredTags, tags } = this.props.TagCloud;
 
-        return tags.map((item, i) => {
+        return filteredTags.map((item, i) => {
             
             return (
                     <Tag 
@@ -53,7 +53,7 @@ class TagCloud extends PureComponent {
 
 function mapStateToProps(state) {
     return {
-        tags: state.TagCloud.tags,
+        TagCloud: state.TagCloud,
         isLoaded: state.isLoaded
     }
 }
