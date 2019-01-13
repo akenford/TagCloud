@@ -1,5 +1,5 @@
 // react
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 
 // components
 import { PageTypes } from '../PageTypes/PageTypes'
@@ -15,7 +15,7 @@ import * as apiActions from '../../actions/api-actions'
 // additional
 import { map } from 'lodash';
 
-class TagInfo extends PureComponent {
+class TagInfo extends Component {
    
     componentDidMount() {
         let { getTagById } = this.props.apiActions;
@@ -24,7 +24,7 @@ class TagInfo extends PureComponent {
         getTagById(decodedAString);
     }
     renderTopMention() {
-        let { tag } = this.props;
+        let { tag } = this.props.Tag;
         let sum = 0;
 
         _.map(tag.sentiment, (qty) => sum += qty);
@@ -32,7 +32,7 @@ class TagInfo extends PureComponent {
           return <Mention name={'Total:'}  value={sum}/>
     }
     renderMentions() {
-        let { tag } = this.props;
+        let { tag } = this.props.Tag;
 
         return _.map(tag.sentiment, (qty, name) => {
 
@@ -41,7 +41,7 @@ class TagInfo extends PureComponent {
         });
     }
     renderPageTypes() {
-        let { tag } = this.props;
+        let { tag } = this.props.Tag;
 
         return _.map(tag.pageType, (qty, name) => {
            
@@ -51,7 +51,8 @@ class TagInfo extends PureComponent {
     }
 
     render() {
-        let { isLoaded, tag } = this.props;
+        let { isLoaded } = this.props.isLoaded;
+        let { tag } = this.props.Tag
 
         if(!isLoaded) return <div><h1>Loading....</h1></div>;
 
@@ -74,7 +75,7 @@ class TagInfo extends PureComponent {
 
 function mapStateToProps(state) {
     return {
-        tag: state.TagInfo.tag,
+        Tag: state.TagInfo,
         isLoaded: state.isLoaded
     }
 }

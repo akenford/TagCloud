@@ -25,7 +25,6 @@ class TagCloud extends Component {
         let { filteredTags, tags } = this.props.TagCloud;
 
         return filteredTags.map((item, i) => {
-            
             return (
                     <Tag 
                         key={i}
@@ -37,15 +36,19 @@ class TagCloud extends Component {
             ) 
         })
     }
+    renderNoResults() {
+        return <div><h1>Nothing found...</h1></div>
+    }
 
     render() {
-        let { isLoaded } = this.props;
+        let { isLoaded } = this.props.isLoaded;
+        let { filteredTags } = this.props.TagCloud;
 
          if(!isLoaded) return <div><h1>Loading....</h1></div>;
     
         return (
             <div className="tag-cloud">
-                {this.renderTags()}
+                {filteredTags.length ? this.renderTags() : this.renderNoResults()}
             </div>
         );
     }
