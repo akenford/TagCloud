@@ -1,5 +1,5 @@
 // react
-import React, { PureComponent, Fragment } from "react";
+import React, { Component } from "react";
 
 // redux
 import { bindActionCreators } from 'redux'
@@ -15,7 +15,7 @@ import { Tag } from '../../components/Tag/Tag'
 import Utils from "../../utills/Utills/Utills"
 
 
-class TagCloud extends PureComponent {
+class TagCloud extends Component {
 
     componentDidMount() {
         let { getTags } = this.props.apiActions;
@@ -44,9 +44,9 @@ class TagCloud extends PureComponent {
          if(!isLoaded) return <div><h1>Loading....</h1></div>;
     
         return (
-            <Fragment>
+            <div className="tag-cloud">
                 {this.renderTags()}
-            </Fragment>
+            </div>
         );
     }
 }

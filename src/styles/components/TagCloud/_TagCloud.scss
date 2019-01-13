@@ -1,17 +1,27 @@
-.tag {
-    margin: 10px;
-   
-    & a {
-        text-decoration: none;
-        padding: 5px 15px;
-        color:#fff;
-        text-transform: lowercase;
-        font-size: 1em;
-        border-radius: 50px;
-        background: linear-gradient(90deg, #c55eff,#5fc8ff);
+.tag-cloud {
+    min-height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 
-        &:hover {
-            color:#000;
+    .tag {
+        margin: 10px;
+       
+        & a {
+            text-decoration: none;
+            padding: 5px 15px;
+            color:#fff;
+            text-transform: lowercase;
+            font-size: 1em;
+            border-radius: 50px;
+            background: linear-gradient(90deg, #c55eff,#5fc8ff);
+    
+            &:hover {
+                color:#000;
+            }
         }
     }
 }
+
+
