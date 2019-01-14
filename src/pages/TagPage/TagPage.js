@@ -15,14 +15,14 @@ class TagPage extends PureComponent {
     
     render() {
     return (
-        <div>
+        <Fragment>
             <Layout>
-                {/* <Header>
+                <Header>
                     <Link to={"/"}>{'<='}</Link>
-                </Header> */}
+                </Header>
                 <TagInfo/>
             </Layout>
-        </div>
+        </Fragment>
     )}
 };
 
