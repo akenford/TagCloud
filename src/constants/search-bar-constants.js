@@ -1,0 +1,1 @@
+export const SET_SEARCH_BAR_VALUE = 'SET_SEARCH_BAR_VALUE';

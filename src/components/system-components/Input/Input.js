@@ -1,34 +1,21 @@
 // react
-import React, { PureComponent, Fragment } from "react"
+import React, { Component, Fragment } from "react"
 
-class Input extends PureComponent {
+class Input extends Component {
     constructor() {
         super();
-        this.state = {
-            value:''
-        }
-        
+             
         this.handleChange = this.handleChange.bind(this);
         this.handleReset = this.handleReset.bind(this);
     }
 
     handleChange(e) {
         let { inputOnChange } = this.props;
-
-        this.setState({
-            value:e.target.value
-        })
-
         inputOnChange(e.target.value);
     }
 
     handleReset() {
         let { inputOnChange } = this.props;
-
-        this.setState({
-            value:''
-        })
-
         inputOnChange('');
     }
 
@@ -39,18 +26,18 @@ class Input extends PureComponent {
     }
 
     render() {
-        let { inputClass, inputType, inputPlaceholder } = this.props;
-        let { value } = this.state;
+        let { inputClass, inputType, inputPlaceholder, inputValue } = this.props;
 
         return (
             <Fragment>
-                {value.length ? this.renderRemoveIcon() : null}
+                {inputValue.length ? this.renderRemoveIcon() : null}
                 <input
                     className={inputClass}
+                    autoFocus={true}
                     type={inputType}
                     placeholder={inputPlaceholder}
                     onChange={this.handleChange}
-                    value={value}/>
+                    value={inputValue}/>
             </Fragment>
         )
     }

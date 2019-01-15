@@ -18,6 +18,15 @@ const Utils = {
 
            return fontSize + unit;
     },
+
+    filterArray: (arr, value) => {
+        let filteredArray = arr.slice(0);
+
+        return filteredArray = filteredArray.filter((item) => {
+            return item.label.toLowerCase().search(
+                value.toLowerCase()) !== -1;
+            });
+    }
 };
 
 export default Utils;

@@ -1,6 +1,6 @@
 
 // constants
-import { PENDING_GET_TAGS, SUCCES_GET_TAGS, ERROR_GET_TAGS } from '../constants/tag-cloud-constants'
+import { PENDING_GET_TAGS, SUCCES_GET_TAGS, ERROR_GET_TAGS, FILTER_TAGS } from '../constants/tag-cloud-constants'
 import { 
     PENDING_GET_TAG_BY_ID, 
     SUCCES_GET_TAG_BY_ID, 
@@ -13,7 +13,7 @@ import { ASYNC_LOADING, ASYNC_LOADED } from '../constants/is-loaded-constants'
 import { fetcher } from '../utills/Fetch/Fetch'
 
 export const getTags = () => {
-    return  (dispatch) => {
+    return  (dispatch, getState) => {
         dispatch({type: ASYNC_LOADING, isLoaded:false});
 
         dispatch({type: PENDING_GET_TAGS});
@@ -26,9 +26,8 @@ export const getTags = () => {
 
             dispatch({
                 type: SUCCES_GET_TAGS,
-                tags:result
+                tags: result
             })
-
             })
             .catch( () =>
                 dispatch({type: ERROR_GET_TAGS})

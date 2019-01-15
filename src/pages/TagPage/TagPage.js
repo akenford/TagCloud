@@ -18,7 +18,7 @@ class TagPage extends PureComponent {
         <Fragment>
             <Layout>
                 <Header>
-                    <Link to={"/"}>{'<='}</Link>
+                    <Link to={"/"}>{'Move Back'}</Link>
                 </Header>
                 <TagInfo/>
             </Layout>
