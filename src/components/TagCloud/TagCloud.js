@@ -23,9 +23,8 @@ class TagCloud extends Component {
     }
     renderTags() {
         let { filteredTags, tags } = this.props.TagCloud;
-        let { value } = this.props.SearchBar;
 
-        return Utils.filterArray(filteredTags, value).map((item, i) => {
+        return filteredTags.map((item, i) => {
             return (
                     <Tag 
                         key={i}
@@ -58,7 +57,6 @@ class TagCloud extends Component {
 function mapStateToProps(state) {
     return {
         TagCloud: state.TagCloud,
-        SearchBar: state.SearchBar,
         isLoaded: state.isLoaded
     }
 }

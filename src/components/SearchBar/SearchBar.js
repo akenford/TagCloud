@@ -22,10 +22,9 @@ class SearchBar extends Component {
         let { filterTagByValue } = this.props.tagCloudActions;
         let { setSearchBarValue } = this.props.searchBarActions;
         let { tags } = this.props.TagCloud;
-        let filteredArray = Utils.filterArray(tags, inputValue);
 
         setSearchBarValue(inputValue);
-        filterTagByValue(filteredArray);
+        filterTagByValue(Utils.filterArray(tags, inputValue));
     };
 
     render() {

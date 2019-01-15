@@ -12,6 +12,9 @@ import { ASYNC_LOADING, ASYNC_LOADED } from '../constants/is-loaded-constants'
 // fetch
 import { fetcher } from '../utills/Fetch/Fetch'
 
+// utills
+import Utils from "../utills/Utills/Utills"
+
 export const getTags = () => {
     return  (dispatch, getState) => {
         dispatch({type: ASYNC_LOADING, isLoaded:false});
@@ -28,6 +31,12 @@ export const getTags = () => {
                 type: SUCCES_GET_TAGS,
                 tags: result
             })
+            })
+            .then( () => { 
+                dispatch({
+                    type: FILTER_TAGS,
+                    filteredTags: Utils.filterArray(getState().TagCloud.filteredTags, getState().SearchBar.value )
+                })
             })
             .catch( () =>
                 dispatch({type: ERROR_GET_TAGS})
