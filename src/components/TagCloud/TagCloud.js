@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 
 // actions
 import * as apiActions from '../../actions/api-actions'
+import * as tagCloudActions from '../../actions/tag-cloud-actions'
 
 // components
 import { Tag } from '../../components/Tag/Tag'
@@ -21,15 +22,29 @@ class TagCloud extends Component {
         let { getTags } = this.props.apiActions;
         getTags();
     }
+    removeTagById(id) {
+         let { updateTags, filterTagByValue } = this.props.tagCloudActions;
+         let { tags } = this.props.TagCloud;
+         let { value } = this.props.SearchBar;
+         let filteredItems = tags.filter(item => item.id !== id);
+
+        updateTags(filteredItems);
+
+        filterTagByValue(Utils.filterArray(filteredItems, value));
+
+
+    }
     renderTags() {
-        let { filteredTags, tags } = this.props.TagCloud;
+        let { filteredTags, tags, editMode } = this.props.TagCloud;
 
         return filteredTags.map((item, i) => {
             return (
                     <Tag 
                         key={i}
                         fontSize={Utils.fontCalculation(tags, item.sentimentScore)}
-                        data={item}  
+                        data={item}
+                        removeTagById={this.removeTagById.bind(this)}
+                        editMode={editMode}
                         routeTo={item.id} 
                         name={item.label}
                     />
@@ -57,6 +72,7 @@ class TagCloud extends Component {
 function mapStateToProps(state) {
     return {
         TagCloud: state.TagCloud,
+        SearchBar: state.SearchBar,
         isLoaded: state.isLoaded
     }
 }
@@ -64,6 +80,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         apiActions: bindActionCreators(apiActions, dispatch),
+        tagCloudActions: bindActionCreators(tagCloudActions, dispatch),
     }
 }
 

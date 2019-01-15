@@ -6,9 +6,10 @@
     align-items: center;
     margin: 50px 0 0 0;
 
-    .tag {
+    .tag, .tag-animated {
         margin: 10px;
-       
+        position: relative;
+
         & a {
             text-decoration: none;
             padding: 5px 15px;
@@ -21,6 +22,26 @@
             &:hover {
                 color:#000;
             }
+        }
+        & span {
+            display: none;
+        }
+    }
+    .tag-animated {
+        animation: shake .2s infinite;
+
+        & span {
+            display: block;
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            background-color: #a29898;
+            font-weight: 400;
+            color:#000;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            text-align: center;
         }
     }
 }

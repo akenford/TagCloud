@@ -1,10 +1,11 @@
 
 // constants
-import { SUCCES_GET_TAGS, FILTER_TAGS } from '../constants/tag-cloud-constants'
+import { SUCCES_GET_TAGS, FILTER_TAGS, EDIT_MODE, UPDATE_TAGS } from '../constants/tag-cloud-constants'
 
 const initialState = {
    tags:[],
-   filteredTags:[]
+   filteredTags:[],
+   editMode:false
 };
 
 export const TagCloud = (state = initialState, action) => {
@@ -21,6 +22,18 @@ export const TagCloud = (state = initialState, action) => {
 
             return Object.assign( {}, state, {
                 filteredTags: action.filteredTags
+            });
+
+        case EDIT_MODE:
+
+            return Object.assign( {}, state, {
+                editMode: action.editMode
+            });
+
+        case UPDATE_TAGS:
+
+            return Object.assign( {}, state, {
+                tags: action.tags
             });
 
 

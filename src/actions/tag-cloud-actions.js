@@ -1,9 +1,8 @@
 // constants
-import { SUCCES_GET_TAGS, FILTER_TAGS } from '../constants/tag-cloud-constants'
-import { SUCCES_GET_TAG_BY_ID } from '../constants/tag-info-constants'
+import { FILTER_TAGS, EDIT_MODE, UPDATE_TAGS } from '../constants/tag-cloud-constants'
 
-export const getTags = (tags) => (dispatch) => dispatch({ type: SUCCES_GET_TAGS , tags});
+export const filterTagByValue = (filteredTags) => (dispatch) => dispatch({ type: FILTER_TAGS, filteredTags});
 
-export const getTagById = (tag) => (dispatch) => dispatch({ type: SUCCES_GET_TAG_BY_ID , tag});
+export const removeMode = (editMode) => (dispatch) => dispatch({ type: EDIT_MODE, editMode});
 
-export const filterTagByValue = (filteredTags) => (dispatch) => dispatch({ type: FILTER_TAGS, filteredTags})
+export const updateTags = (tags) => (dispatch) => dispatch({ type: UPDATE_TAGS, tags});

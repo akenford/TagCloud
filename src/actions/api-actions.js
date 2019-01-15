@@ -31,12 +31,10 @@ export const getTags = () => {
                 type: SUCCES_GET_TAGS,
                 tags: result
             })
+            dispatch({
+                type: FILTER_TAGS,
+                filteredTags: Utils.filterArray(getState().TagCloud.filteredTags, getState().SearchBar.value )
             })
-            .then( () => { 
-                dispatch({
-                    type: FILTER_TAGS,
-                    filteredTags: Utils.filterArray(getState().TagCloud.filteredTags, getState().SearchBar.value )
-                })
             })
             .catch( () =>
                 dispatch({type: ERROR_GET_TAGS})

@@ -52,7 +52,7 @@ class TagInfo extends Component {
 
     render() {
         let { isLoaded } = this.props.isLoaded;
-        let { tag } = this.props.Tag
+        let { tag } = this.props.Tag;
 
         if(!isLoaded) return <div><h1>Loading....</h1></div>;
 
