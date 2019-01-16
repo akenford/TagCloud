@@ -31,8 +31,6 @@ class TagCloud extends Component {
         updateTags(filteredItems);
 
         filterTagByValue(Utils.filterArray(filteredItems, value));
-
-
     }
     renderTags() {
         let { filteredTags, tags, editMode } = this.props.TagCloud;

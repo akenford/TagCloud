@@ -8,6 +8,9 @@ import { bindActionCreators } from 'redux'
 // actions
 import * as tagCloudActions from '../../actions/tag-cloud-actions'
 
+//compoinents
+import InputCheckbox from '../system-components/InputCheckbox/InputCheckbox'
+
 
 class RemoveTag extends Component {
 
@@ -15,8 +18,8 @@ class RemoveTag extends Component {
         let { removeMode } = this.props.tagCloudActions;
         let { editMode } = this.props.TagCloud;
         return (
-            <div className="remove-tag-container" onClick={() => {removeMode(!editMode)}}>
-                <button type="button">Remove Mode</button>
+            <div className="remove-tag-container">
+                <InputCheckbox handleRemoveMode={removeMode} editMode={editMode}/>
             </div>
         )
     }
