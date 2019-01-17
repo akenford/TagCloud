@@ -17,7 +17,7 @@
     right: 0;
     margin: auto;
     width: 51px;
-    height: 31px;
+    height: 25px;
   }
   .toggle label,
   .toggle i {
@@ -28,7 +28,7 @@
 
   .toggle label {
     width: 51px;
-    height: 32px;
+    height: 25px;
     border-radius: 32px;
     border: 2px solid #e5e5e5;
     transition: all 0.30s ease;
@@ -38,8 +38,8 @@
     position: absolute;
     top: 2px;
     left: 2px;
-    width: 28px;
-    height: 28px;
+    width: 21px;
+    height: 21px;
     border-radius: 28px;
     box-shadow: 0 0 1px 0 rgba(0,0,0, 0.25),
     0 3px 3px 0 rgba(0,0,0, 0.15);
@@ -56,11 +56,11 @@
 
   input[type="checkbox"]:active + .toggle label,
   input[type="checkbox"]:checked + .toggle label {
-    border: 16px solid #4cd964;
+    border: 12.5px solid #4cd964;
   }
 
   input[type="checkbox"]:checked + .toggle i {
-    left: 21px;
+    left: 27px;
   }
 
   input[type="checkbox"]:checked:active + .toggle label {

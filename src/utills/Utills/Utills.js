@@ -5,7 +5,7 @@ const Utils = {
         array = [],
         score = 0,
         fontMin = 14, 
-        fontMax = 80,
+        fontMax = 60,
         unit= 'px'
         ) => {
 
