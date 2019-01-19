@@ -1,8 +1,14 @@
 // react
-import React, { PureComponent, Fragment } from "react";
+import React, { Component, Fragment } from "react";
+// redux
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 // router
 import { BrowserRouter , Route } from 'react-router-dom'
+
+// actions
+import * as apiActions from './actions/api-actions'
 
 // styles 
 import "./styles/index.scss"
@@ -11,8 +17,12 @@ import "./styles/index.scss"
 import HomePage from "./pages/HomePage/HomePage";
 import TagPage from "./pages/TagPage/TagPage"
 
+class App extends Component {
 
-class App extends PureComponent {
+    componentDidMount() {
+        let { getTags } = this.props.apiActions;
+        getTags();
+    }
     
     render() {
         return (
@@ -26,4 +36,11 @@ class App extends PureComponent {
     }
 }
 
-export default App;
+function mapDispatchToProps(dispatch) {
+    return {
+        apiActions: bindActionCreators(apiActions, dispatch),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(App)
+

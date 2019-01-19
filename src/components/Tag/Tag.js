@@ -4,14 +4,11 @@ import React from "react";
 // router
 import { Link } from "react-router-dom";
 
-export const Tag = ({ routeTo, name, fontSize, editMode, removeTagById}) => {
+export const Tag = ({ routeTo, name, fontSize, removeMode, removeTagById}) => {
     return (
-        <div className={editMode ? 'tag-animated' : 'tag'}>
+        <div className={removeMode ? 'tag-animated' : 'tag'}>
             <Link
-                onClick={(e) => {
-                    e.preventDefault();
-                    removeTagById(routeTo)
-                }}
+                onClick={removeMode ? e => removeTagById(e, routeTo) : null}
                 style={{fontSize}}
                 to={`/${routeTo}`}>
                 {name}

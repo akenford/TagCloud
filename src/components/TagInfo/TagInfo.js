@@ -49,7 +49,6 @@ class TagInfo extends Component {
             
           });
     }
-
     render() {
         let { isLoaded } = this.props.isLoaded;
         let { tag } = this.props.Tag;

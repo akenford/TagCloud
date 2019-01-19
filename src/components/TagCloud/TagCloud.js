@@ -18,22 +18,19 @@ import Utils from "../../utills/Utills/Utills"
 
 class TagCloud extends Component {
 
-    componentDidMount() {
-        let { getTags } = this.props.apiActions;
-        getTags();
-    }
-    removeTagById(id) {
+    removeTagById(event, id) {
          let { updateTags, filterTagByValue } = this.props.tagCloudActions;
          let { tags } = this.props.TagCloud;
          let { value } = this.props.SearchBar;
          let filteredItems = tags.filter(item => item.id !== id);
 
-        updateTags(filteredItems);
+         event.preventDefault();
+         updateTags(filteredItems);
 
-        filterTagByValue(Utils.filterArray(filteredItems, value));
+         filterTagByValue(Utils.filterArray(filteredItems, value));
     }
     renderTags() {
-        let { filteredTags, tags, editMode } = this.props.TagCloud;
+        let { filteredTags, tags, removeMode } = this.props.TagCloud;
 
         return filteredTags.map((item, i) => {
             return (
@@ -42,7 +39,7 @@ class TagCloud extends Component {
                         fontSize={Utils.fontCalculation(tags, item.sentimentScore)}
                         data={item}
                         removeTagById={this.removeTagById.bind(this)}
-                        editMode={editMode}
+                        removeMode={removeMode}
                         routeTo={item.id} 
                         name={item.label}
                     />
@@ -52,7 +49,6 @@ class TagCloud extends Component {
     renderNoResults() {
         return <div><h1>Nothing found...</h1></div>
     }
-
     render() {
         let { isLoaded } = this.props.isLoaded;
         let { filteredTags } = this.props.TagCloud;

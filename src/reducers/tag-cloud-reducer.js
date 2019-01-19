@@ -5,7 +5,7 @@ import { SUCCES_GET_TAGS, FILTER_TAGS, EDIT_MODE, UPDATE_TAGS } from '../constan
 const initialState = {
    tags:[],
    filteredTags:[],
-   editMode:false
+   removeMode:false
 };
 
 export const TagCloud = (state = initialState, action) => {
@@ -27,7 +27,7 @@ export const TagCloud = (state = initialState, action) => {
         case EDIT_MODE:
 
             return Object.assign( {}, state, {
-                editMode: action.editMode
+                removeMode: action.removeMode
             });
 
         case UPDATE_TAGS:

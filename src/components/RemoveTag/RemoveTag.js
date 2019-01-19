@@ -15,11 +15,12 @@ import InputCheckbox from '../system-components/InputCheckbox/InputCheckbox'
 class RemoveTag extends Component {
 
     render() {
-        let { removeMode } = this.props.tagCloudActions;
-        let { editMode } = this.props.TagCloud;
+        let { switchRemoveMode } = this.props.tagCloudActions;
+        let { removeMode } = this.props.TagCloud;
+
         return (
             <div className="remove-tag-container">
-                <InputCheckbox handleRemoveMode={removeMode} editMode={editMode}/>
+                <InputCheckbox handleRemoveMode={switchRemoveMode} removeMode={removeMode}/>
             </div>
         )
     }
