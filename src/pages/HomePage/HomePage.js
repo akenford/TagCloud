@@ -1,5 +1,5 @@
 // react
-import React, { Component } from "react";
+import React from "react";
 
 // containers
 import { Layout } from '../../containers/Layout/Layout'
