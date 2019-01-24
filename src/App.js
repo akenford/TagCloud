@@ -14,8 +14,8 @@ import * as apiActions from './actions/api-actions'
 import "./styles/index.scss"
 
 // pages
-import HomePage from "./pages/HomePage/HomePage";
-import TagPage from "./pages/TagPage/TagPage"
+import { HomePage } from "./pages/HomePage/HomePage";
+import { TagPage } from "./pages/TagPage/TagPage"
 
 class App extends Component {
 

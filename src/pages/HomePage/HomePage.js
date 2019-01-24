@@ -1,5 +1,5 @@
 // react
-import React, { PureComponent, Fragment } from "react";
+import React, { Component } from "react";
 
 // containers
 import { Layout } from '../../containers/Layout/Layout'
@@ -11,21 +11,15 @@ import SearchBar from '../../components/SearchBar/SearchBar'
 import AddTag from '../../components/AddTag/AddTag'
 import RemoveTag from '../../components/RemoveTag/RemoveTag'
 
-class HomePage extends PureComponent {
-    
-    render() {
+export const HomePage = () => {
     return (
-        <Fragment>
-            <Layout>
-                <Header>
-                    <SearchBar/>
-                </Header>
-                {/*<AddTag/>*/}
-                <RemoveTag/>
-                <TagCloud/>
-            </Layout>
-        </Fragment>
-    )}
+        <Layout>
+            <Header>
+                <SearchBar/>
+            </Header>
+            {/*<AddTag/>*/}
+            <RemoveTag/>
+            <TagCloud/>
+        </Layout>
+    )
 };
-
-export default HomePage;

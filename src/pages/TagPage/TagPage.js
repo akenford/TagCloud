@@ -11,19 +11,13 @@ import { Link } from "react-router-dom";
 import TagInfo from '../../components/TagInfo/TagInfo'
 import { Header } from '../../components/Header/Header'
 
-class TagPage extends PureComponent {
-    
-    render() {
+export const TagPage = () => {
     return (
-        <Fragment>
-            <Layout>
-                <Header>
-                    <Link to={"/"}>{'Move Back'}</Link>
-                </Header>
-                <TagInfo/>
-            </Layout>
-        </Fragment>
-    )}
+        <Layout>
+            <Header>
+                <Link to={"/"}>{'Move Back'}</Link>
+            </Header>
+            <TagInfo/>
+        </Layout>
+    )
 };
-
-export default TagPage;
