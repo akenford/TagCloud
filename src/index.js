@@ -20,8 +20,8 @@ import App from './App'
 const store = createStore(
     mainReducer,
     applyMiddleware(
-        logger,
-        thunk
+        thunk,
+        logger
     )
 );
 
