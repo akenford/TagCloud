@@ -17,7 +17,6 @@ export const HomePage = () => {
             <Header>
                 <SearchBar/>
             </Header>
-            {/*<AddTag/>*/}
             <RemoveTag/>
             <TagCloud/>
         </Layout>

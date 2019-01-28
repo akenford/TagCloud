@@ -1,11 +1,11 @@
 // react
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 // redux
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 // router
-import { BrowserRouter , Route } from 'react-router-dom'
+import { BrowserRouter , Route, Switch  } from 'react-router-dom'
 
 // actions
 import * as apiActions from './actions/api-actions'
@@ -15,7 +15,7 @@ import "./styles/index.scss"
 
 // pages
 import { HomePage } from "./pages/HomePage/HomePage";
-import { TagPage } from "./pages/TagPage/TagPage"
+import { TagPage } from "./pages/TagPage/TagPage";
 
 class App extends Component {
 
@@ -27,10 +27,10 @@ class App extends Component {
     render() {
         return (
             <BrowserRouter>
-                <Fragment>
+                <Switch>
                     <Route exact path='/' component={HomePage}/>
                     <Route path='/:itemId'  component={TagPage}/>
-                </Fragment>
+                </Switch>
             </BrowserRouter>
         );
     }

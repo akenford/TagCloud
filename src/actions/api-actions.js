@@ -1,12 +1,6 @@
-
 // constants
 import { PENDING_GET_TAGS, SUCCES_GET_TAGS, ERROR_GET_TAGS, FILTER_TAGS } from '../constants/tag-cloud-constants'
-import { 
-    PENDING_GET_TAG_BY_ID, 
-    SUCCES_GET_TAG_BY_ID, 
-    ERROR_GET_TAG_BY_ID
- } from '../constants/tag-info-constants'
-
+import { PENDING_GET_TAG_BY_ID, SUCCES_GET_TAG_BY_ID, ERROR_GET_TAG_BY_ID } from '../constants/tag-info-constants'
 import { ASYNC_LOADING, ASYNC_LOADED } from '../constants/is-loaded-constants'
 
 // fetch
@@ -35,6 +29,7 @@ export const getTags = () => {
                 type: FILTER_TAGS,
                 filteredTags: Utils.filterArray(getState().TagCloud.filteredTags, getState().SearchBar.value )
             })
+
             })
             .catch( () =>
                 dispatch({type: ERROR_GET_TAGS})
