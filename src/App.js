@@ -1,5 +1,5 @@
 // react
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // redux
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -11,11 +11,11 @@ import { BrowserRouter , Route, Switch  } from 'react-router-dom'
 import * as apiActions from './actions/api-actions'
 
 // styles 
-import "./styles/index.scss"
+import './styles/index.scss'
 
 // pages
-import { HomePage } from "./pages/HomePage/HomePage";
-import { TagPage } from "./pages/TagPage/TagPage";
+import { HomePage } from './pages/HomePage/HomePage';
+import { TagPage } from './pages/TagPage/TagPage';
 
 class App extends Component {
 

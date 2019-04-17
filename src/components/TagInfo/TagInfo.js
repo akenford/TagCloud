@@ -1,5 +1,5 @@
 // react
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 // components
 import { PageTypes } from '../PageTypes/PageTypes'
@@ -56,15 +56,15 @@ class TagInfo extends Component {
         if(!isLoaded) return <div><h1>Loading....</h1></div>;
 
     return (
-        <div className="tag-info">
-             <h1 className="tag-info-caption">{tag.label}</h1>
+        <div className='tag-info'>
+             <h1 className='tag-info-caption'>{tag.label}</h1>
             <h3>Mentions</h3>
-            <div className="mentions-container">
+            <div className='mentions-container'>
                 {this.renderTopMention()}
                 {this.renderMentions()}
             </div>
                 <h3>Page Types</h3>
-            <div className="page-types-container">
+            <div className='page-types-container'>
                 {this.renderPageTypes()}
             </div>
         </div>

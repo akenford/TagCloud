@@ -1,5 +1,5 @@
 // react
-import React from "react";
+import React from 'react';
 
 // containers
 import { Layout } from '../../containers/Layout/Layout'
@@ -18,6 +18,7 @@ export const HomePage = () => {
                 <SearchBar/>
             </Header>
             <RemoveTag/>
+            <AddTag/>
             <TagCloud/>
         </Layout>
     )

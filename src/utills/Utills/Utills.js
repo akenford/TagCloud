@@ -22,7 +22,7 @@ const Utils = {
     filterArray: (arr, value) => {
         let filteredArray = arr.slice(0);
 
-        return filteredArray = filteredArray.filter((item) => {
+        return filteredArray.filter((item) => {
             return item.label.toLowerCase().search(
                 value.toLowerCase()) !== -1;
             });

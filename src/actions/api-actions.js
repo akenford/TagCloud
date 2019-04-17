@@ -7,7 +7,7 @@ import { ASYNC_LOADING, ASYNC_LOADED } from '../constants/is-loaded-constants'
 import { fetcher } from '../utills/Fetch/Fetch'
 
 // utills
-import Utils from "../utills/Utills/Utills"
+import Utils from '../utills/Utills/Utills'
 
 export const getTags = () => {
     return  (dispatch, getState) => {

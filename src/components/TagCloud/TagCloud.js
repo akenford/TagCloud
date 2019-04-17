@@ -1,5 +1,5 @@
 // react
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 // redux
 import { bindActionCreators } from 'redux'
@@ -13,7 +13,7 @@ import * as tagCloudActions from '../../actions/tag-cloud-actions'
 import { Tag } from '../../components/Tag/Tag'
 
 // utills
-import Utils from "../../utills/Utills/Utills"
+import Utils from '../../utills/Utills/Utills'
 
 
 class TagCloud extends Component {
@@ -56,7 +56,7 @@ class TagCloud extends Component {
          if(!isLoaded) return <div><h1>Loading....</h1></div>;
     
         return (
-            <div className="tag-cloud">
+            <div className='tag-cloud'>
                 {filteredTags.length ? this.renderTags() : this.renderNoResults()}
             </div>
         );

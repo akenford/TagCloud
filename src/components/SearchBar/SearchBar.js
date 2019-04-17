@@ -1,5 +1,5 @@
 // react
-import React, { Component } from "react"
+import React, { Component } from 'react'
 
 // redux
 import { connect } from 'react-redux'
@@ -13,7 +13,7 @@ import * as searchBarActions from '../../actions/search-bar-actions'
 import Input from '../system-components/Input/Input'
 
 // utills
-import Utils from "../../utills/Utills/Utills"
+import Utils from '../../utills/Utills/Utills'
 
 
 class SearchBar extends Component {
@@ -29,12 +29,12 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <form className="search-bar">
+            <form className='search-bar'>
                 <Input
-                    inputClass="search-bar--search"
-                    inputType="text"
+                    inputClass='search-bar--search'
+                    inputType='text'
                     inputValue={this.props.SearchBar.value}
-                    inputPlaceholder="Search tags"
+                    inputPlaceholder='Search tags'
                     inputOnChange={this.handleChange.bind(this)}/>
             </form>
         )

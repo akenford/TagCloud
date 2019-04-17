@@ -1,5 +1,5 @@
 // react
-import React, { Component } from "react"
+import React, { Component } from 'react'
 
 // redux
 import { connect } from 'react-redux'
@@ -19,7 +19,7 @@ class RemoveTag extends Component {
         let { removeMode } = this.props.TagCloud;
 
         return (
-            <div className="remove-tag-container">
+            <div className='remove-tag-container'>
                 <InputCheckbox handleRemoveMode={switchRemoveMode} removeMode={removeMode}/>
             </div>
         )

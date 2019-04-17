@@ -1,5 +1,5 @@
 // react
-import React, { Component } from "react"
+import React, { Component } from 'react'
 
 class InputCheckbox extends Component {
     constructor() {
@@ -16,15 +16,15 @@ class InputCheckbox extends Component {
         let { isChecked } = this.state;
 
         return (
-            <div className="input-checkbox-cnt">
+            <div className='input-checkbox-cnt'>
                 <p>Remove Mode</p>
                 <input
-                    type="checkbox"
+                    type='checkbox'
                     onChange={this.handleChange.bind(this)}
-                    id="toggle_today_summary"
+                    id='toggle_today_summary'
                     checked={isChecked}/>
-                <div className="toggle">
-                    <label htmlFor="toggle_today_summary">
+                <div className='toggle'>
+                    <label htmlFor='toggle_today_summary'>
                         <i></i>
                     </label>
                 </div>
