@@ -1,8 +1,5 @@
 // react
-import React from 'react';
-
-// containers
-import { Layout } from '../../containers/Layout/Layout'
+import React, { Fragment } from 'react';
 
 // router
 import { Link } from 'react-router-dom';
@@ -13,11 +10,11 @@ import { Header } from '../../components/Header/Header'
 
 export const TagPage = () => {
     return (
-        <Layout>
+        <Fragment>
             <Header>
-                <Link to={'/'}>{'Move Back'}</Link>
+                <Link to={'/'}>Back</Link>
             </Header>
             <TagInfo/>
-        </Layout>
+        </Fragment>
     )
 };

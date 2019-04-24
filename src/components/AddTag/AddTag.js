@@ -5,6 +5,9 @@ import React, { Component } from "react"
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
+// router
+import { Link } from 'react-router-dom';
+
 // actions
 import * as tagCloudActions from '../../actions/tag-cloud-actions'
 
@@ -13,8 +16,8 @@ class AddTag extends Component {
 
     render() {
         return (
-            <div className="add-tag-container" onClick={() => {console.log('add tag')}}>
-                <button type="button">Add Tag</button>
+            <div className="add-tag-container" onClick={() => {console.log(this.props.TagCloud.tags)}}>
+                <Link to={'/add-tag'}>Add Tag</Link>
             </div>
         )
     }

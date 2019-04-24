@@ -20,7 +20,6 @@ class TagInfo extends Component {
     componentDidMount() {
         let { getTagById } = this.props.apiActions;
         let decodedAString = decodeURIComponent(window.location.pathname).substr(1);
-
         getTagById(decodedAString);
     }
     renderTopMention() {

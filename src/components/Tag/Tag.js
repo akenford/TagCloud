@@ -4,6 +4,7 @@ import React from 'react';
 // router
 import { Link } from 'react-router-dom';
 
+
 export const Tag = ({ routeTo, name, fontSize, removeMode, removeTagById}) => {
     return (
         <div className={removeMode ? 'tag-animated' : 'tag'}>

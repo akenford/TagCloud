@@ -1,14 +1,8 @@
 // react
 import React, { Component } from 'react';
-// redux
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 
 // router
-import { BrowserRouter , Route, Switch  } from 'react-router-dom'
-
-// actions
-import * as apiActions from './actions/api-actions'
+import { BrowserRouter as Router , Route, Switch  } from 'react-router-dom'
 
 // styles 
 import './styles/index.scss'
@@ -16,31 +10,25 @@ import './styles/index.scss'
 // pages
 import { HomePage } from './pages/HomePage/HomePage';
 import { TagPage } from './pages/TagPage/TagPage';
+import { AddPage } from './pages/AddPage/AddPage';
 
-class App extends Component {
+// containers
+import Layout from './containers/Layout/Layout'
 
-    componentDidMount() {
-        let { getTags } = this.props.apiActions;
-        getTags();
-    }
-    
+export default class App extends Component {
+
     render() {
         return (
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path='/' component={HomePage}/>
-                    <Route path='/:itemId'  component={TagPage}/>
-                </Switch>
-            </BrowserRouter>
+            <Router>
+                <Layout>
+                    <Switch>
+                        <Route exact path='/' component={HomePage}/>
+                        {/*<Route path='/:tagId'  component={TagPage}/>*/}
+                        <Route path='/add-tag'  component={AddPage}/>
+                    </Switch>
+                </Layout>
+            </Router>
         );
     }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        apiActions: bindActionCreators(apiActions, dispatch),
-    }
-}
-
-export default connect(null, mapDispatchToProps)(App)
+};
 

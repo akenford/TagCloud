@@ -18,18 +18,21 @@ import Utils from '../../utills/Utills/Utills'
 
 class TagCloud extends Component {
 
-    removeTagById(event, id) {
-         let { updateTags, filterTagByValue } = this.props.tagCloudActions;
-         let { tags } = this.props.TagCloud;
-         let { value } = this.props.SearchBar;
-         let filteredItems = tags.filter(item => item.id !== id);
+    removeTagById = (e, id) => {
+        e.preventDefault();
 
-         event.preventDefault();
+        console.log('removeTagById')
+
+        let { updateTags, filterTagByValue } = this.props.tagCloudActions;
+        let { tags } = this.props.TagCloud;
+        let { value } = this.props.SearchBar;
+        let filteredItems = tags.filter(item => item.id !== id);
+
          updateTags(filteredItems);
 
          filterTagByValue(Utils.filterArray(filteredItems, value));
-    }
-    renderTags() {
+    };
+    renderTags = () => {
         let { filteredTags, tags, removeMode } = this.props.TagCloud;
 
         return filteredTags.map((item, i) => {
@@ -38,17 +41,17 @@ class TagCloud extends Component {
                         key={i}
                         fontSize={Utils.fontCalculation(tags, item.sentimentScore)}
                         data={item}
-                        removeTagById={this.removeTagById.bind(this)}
+                        removeTagById={this.removeTagById}
                         removeMode={removeMode}
                         routeTo={item.id} 
                         name={item.label}
                     />
             ) 
         })
-    }
-    renderNoResults() {
+    };
+    renderNoResults = () => {
         return <div><h1>Nothing found...</h1></div>
-    }
+    };
     render() {
         let { isLoaded } = this.props.isLoaded;
         let { filteredTags } = this.props.TagCloud;

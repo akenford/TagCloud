@@ -1,8 +1,5 @@
 // react
-import React from 'react';
-
-// containers
-import { Layout } from '../../containers/Layout/Layout'
+import React, { Fragment } from 'react';
 
 // components
 import { Header }  from '../../components/Header/Header'
@@ -13,13 +10,13 @@ import RemoveTag from '../../components/RemoveTag/RemoveTag'
 
 export const HomePage = () => {
     return (
-        <Layout>
+        <Fragment>
             <Header>
                 <SearchBar/>
             </Header>
             <RemoveTag/>
             <AddTag/>
             <TagCloud/>
-        </Layout>
+        </Fragment>
     )
 };
