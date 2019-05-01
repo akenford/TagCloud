@@ -17,11 +17,8 @@ import Utils from '../../utills/Utills/Utills'
 
 
 class TagCloud extends Component {
-
     removeTagById = (e, id) => {
         e.preventDefault();
-
-        console.log('removeTagById')
 
         let { updateTags, filterTagByValue } = this.props.tagCloudActions;
         let { tags } = this.props.TagCloud;

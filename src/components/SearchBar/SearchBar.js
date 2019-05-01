@@ -18,7 +18,7 @@ import Utils from '../../utills/Utills/Utills'
 
 class SearchBar extends Component {
 
-    handleChange(inputValue) {
+    handleChange = (inputValue) => {
         let { filterTagByValue } = this.props.tagCloudActions;
         let { setSearchBarValue } = this.props.searchBarActions;
         let { tags } = this.props.TagCloud;
@@ -35,7 +35,7 @@ class SearchBar extends Component {
                     inputType='text'
                     inputValue={this.props.SearchBar.value}
                     inputPlaceholder='Search tags'
-                    inputOnChange={this.handleChange.bind(this)}/>
+                    inputOnChange={this.handleChange}/>
             </form>
         )
     }

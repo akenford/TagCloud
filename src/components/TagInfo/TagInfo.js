@@ -12,7 +12,7 @@ import { connect } from 'react-redux'
 // actions
 import * as apiActions from '../../actions/api-actions'
 
-// additional
+// lodash
 import { map } from 'lodash';
 
 class TagInfo extends Component {

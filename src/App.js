@@ -16,7 +16,6 @@ import { AddPage } from './pages/AddPage/AddPage';
 import Layout from './containers/Layout/Layout'
 
 export default class App extends Component {
-
     render() {
         return (
             <Router>
