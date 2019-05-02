@@ -1,6 +1,12 @@
 
 // constants
-import { SUCCES_GET_TAGS, FILTER_TAGS, EDIT_MODE, UPDATE_TAGS } from '../constants/tag-cloud-constants'
+import {
+    SUCCES_GET_TAGS,
+    FILTER_TAGS,
+    EDIT_MODE,
+    UPDATE_TAGS,
+    ADD_TAG
+} from '../constants/tag-cloud-constants'
 
 const initialState = {
    tags:[],
@@ -30,14 +36,20 @@ export const TagCloud = (state = initialState, action) => {
                 removeMode: action.removeMode
             });
 
+        case ADD_TAG:
+
+            return Object.assign( {}, state, {
+                tags: state.tags.concat(action.newTag),
+                filteredTags: state.tags.concat(action.newTag)
+            });
+
         case UPDATE_TAGS:
 
             return Object.assign( {}, state, {
                 tags: action.tags
             });
 
-
         default:
             return state;
     }
-}
+};

@@ -15,24 +15,26 @@ import Input from '../system-components/Input/Input'
 // utills
 import Utils from '../../utills/Utills/Utills'
 
-
 class SearchBar extends Component {
 
-    handleChange = (inputValue) => {
+    handleChange = (name, val) => {
         let { filterTagByValue } = this.props.tagCloudActions;
         let { setSearchBarValue } = this.props.searchBarActions;
         let { tags } = this.props.TagCloud;
 
-        setSearchBarValue(inputValue);
-        filterTagByValue(Utils.filterArray(tags, inputValue));
+        setSearchBarValue(val);
+        filterTagByValue(Utils.filterArray(tags, val));
     };
 
     render() {
         return (
-            <form className='search-bar'>
+            <form className={'search-bar'}>
                 <Input
+                    isNeedShowRemoveIcon={true}
                     inputClass='search-bar--search'
+                    required={false}
                     inputType='text'
+                    inputName='search-bar'
                     inputValue={this.props.SearchBar.value}
                     inputPlaceholder='Search tags'
                     inputOnChange={this.handleChange}/>

@@ -20,10 +20,11 @@ class Layout extends Component {
     }
 
     render() {
+        let { children } = this.props;
         return (
             <CSSTransition in={true} appear={true} timeout={700} classNames="fade">
                 <div className="layout">
-                    {this.props.children}
+                    {children}
                 </div>
             </CSSTransition>
         )

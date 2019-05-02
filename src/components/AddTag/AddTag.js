@@ -11,14 +11,57 @@ import { Link } from 'react-router-dom';
 // actions
 import * as tagCloudActions from '../../actions/tag-cloud-actions'
 
+// components
+import Input from '../../components/system-components/Input/Input'
 
 class AddTag extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            label:'',
+            volume:''
+        }
+    }
+    submitForm = (e) => {
+        e.preventDefault();
+        let { addTag } = this.props.tagCloudActions;
+        let { label, volume } = this.state;
 
+        addTag({label:label,volume:volume, sentimentScore:1000})
+
+
+    };
+    handleInputChange = (name, value) => {
+        this.setState({
+             [name]: value
+        });
+    };
     render() {
+        let { label, volume } = this.state;
+
         return (
-            <div className="add-tag-container" onClick={() => {console.log(this.props.TagCloud.tags)}}>
-                <Link to={'/add-tag'}>Add Tag</Link>
-            </div>
+            <form className={'add-form'} onSubmit={this.submitForm}>
+                <Link to={'/'}>To home</Link>
+                <Input
+                    inputClass=''
+                    required={true}
+                    inputType='text'
+                    inputName='label'
+                    inputPlaceholder='Label'
+                    inputValue={label}
+                    inputOnChange={this.handleInputChange}
+                />
+                <Input
+                    inputClass=''
+                    required={true}
+                    inputType='number'
+                    inputName='volume'
+                    inputPlaceholder='Volume'
+                    inputValue={volume}
+                    inputOnChange={this.handleInputChange}
+                />
+                <button type='submit'>Add</button>
+            </form>
         )
     }
 }

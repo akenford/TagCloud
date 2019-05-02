@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Header = (props) => {
+export const Header = ({ children }) => {
     return (
         <div className="header">
-            {props.children}
+            {children}
         </div>
     )
 };

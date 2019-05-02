@@ -33,9 +33,11 @@
   // shake remove animation
 @keyframes shake {
   0% {
+    will-change: transform;
     transform: rotate(-1deg);
   }
   50% {
+    will-change: transform;
     transform: rotate(1deg);
   }
 }

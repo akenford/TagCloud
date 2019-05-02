@@ -19,12 +19,12 @@ const Utils = {
            return fontSize + unit;
     },
 
-    filterArray: (arr, value) => {
+    filterArray: (arr, val) => {
         let filteredArray = arr.slice(0);
 
         return filteredArray.filter((item) => {
             return item.label.toLowerCase().search(
-                value.toLowerCase()) !== -1;
+                val.toLowerCase()) !== -1;
             });
     }
 };

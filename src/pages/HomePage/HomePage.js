@@ -5,7 +5,6 @@ import React, { Fragment } from 'react';
 import { Header }  from '../../components/Header/Header'
 import TagCloud from '../../components/TagCloud/TagCloud'
 import SearchBar from '../../components/SearchBar/SearchBar'
-import AddTag from '../../components/AddTag/AddTag'
 import RemoveTag from '../../components/RemoveTag/RemoveTag'
 
 export const HomePage = () => {
@@ -15,7 +14,6 @@ export const HomePage = () => {
                 <SearchBar/>
             </Header>
             <RemoveTag/>
-            <AddTag/>
             <TagCloud/>
         </Fragment>
     )
