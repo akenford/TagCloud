@@ -1,15 +1,14 @@
 .input-checkbox-cnt {
   position: relative;
+  display: flex;
   width: 180px;
   height: 100%;
   padding: 0 0 0 25px;
+  max-width: 115px;
 
   & p {
-    position: absolute;
     color: #757575;
   }
-
-
   .toggle {
     position: absolute;
     top: 0;

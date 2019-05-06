@@ -5,8 +5,12 @@ import {
     FILTER_TAGS,
     EDIT_MODE,
     UPDATE_TAGS,
-    ADD_TAG
+    ADD_TAG,
+    SORT_TAGS
 } from '../constants/tag-cloud-constants'
+
+// entities
+import Tag from '../entities/Tag'
 
 const initialState = {
    tags:[],
@@ -20,8 +24,8 @@ export const TagCloud = (state = initialState, action) => {
         case SUCCES_GET_TAGS:
 
             return Object.assign( {}, state, {
-                tags: action.tags,
-                filteredTags: action.tags
+                tags: action.tags.map((tag) => new Tag(tag)),
+                filteredTags: action.tags.map((tag) => new Tag(tag))
             });
 
         case FILTER_TAGS:
@@ -39,8 +43,15 @@ export const TagCloud = (state = initialState, action) => {
         case ADD_TAG:
 
             return Object.assign( {}, state, {
-                tags: state.tags.concat(action.newTag),
-                filteredTags: state.tags.concat(action.newTag)
+                tags: [...state.tags , new Tag(action.newTag)],
+                filteredTags: [...state.filteredTags , new Tag(action.newTag)],
+            });
+
+        case SORT_TAGS:
+
+            return Object.assign( {}, state, {
+                tags: state.tags.concat().sort((a, b) => a.label > b.label ? 1: -1),
+                filteredTags: state.filteredTags.concat().sort((a, b) => a.label > b.label ? 1: -1),
             });
 
         case UPDATE_TAGS:

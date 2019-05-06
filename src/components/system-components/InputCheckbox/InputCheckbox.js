@@ -17,7 +17,7 @@ class InputCheckbox extends Component {
 
         return (
             <div className='input-checkbox-cnt'>
-                <p>Remove Mode</p>
+                <p>R Mode</p>
                 <input
                     type='checkbox'
                     onChange={this.handleChange.bind(this)}

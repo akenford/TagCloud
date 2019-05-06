@@ -17,6 +17,7 @@ import Utils from '../../utills/Utills/Utills'
 
 
 class TagCloud extends Component {
+
     removeTagById = (e, id) => {
         e.preventDefault();
 

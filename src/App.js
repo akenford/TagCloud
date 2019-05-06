@@ -12,10 +12,21 @@ import { HomePage } from './pages/HomePage/HomePage';
 import { TagPage } from './pages/TagPage/TagPage';
 import { AddPage } from './pages/AddPage/AddPage';
 
+// redux
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
+
 // containers
 import Layout from './containers/Layout/Layout'
+import * as apiActions from "./actions/api-actions";
 
-export default class App extends Component {
+class App extends Component {
+
+    componentDidMount() {
+        let { getTags } = this.props.apiActions;
+        getTags();
+    }
+
     render() {
         return (
             <Router>
@@ -30,4 +41,12 @@ export default class App extends Component {
         );
     }
 };
+
+function mapDispatchToProps(dispatch) {
+    return {
+        apiActions: bindActionCreators(apiActions, dispatch),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(App)
 

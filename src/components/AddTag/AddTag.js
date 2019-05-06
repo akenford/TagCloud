@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 // router
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 // actions
 import * as tagCloudActions from '../../actions/tag-cloud-actions'
@@ -24,12 +24,12 @@ class AddTag extends Component {
     }
     submitForm = (e) => {
         e.preventDefault();
+
         let { addTag } = this.props.tagCloudActions;
         let { label, volume } = this.state;
 
-        addTag({label:label,volume:volume, sentimentScore:1000})
 
-
+        addTag({label:label,volume:parseInt(volume), sentimentScore:1000});
     };
     handleInputChange = (name, value) => {
         this.setState({
