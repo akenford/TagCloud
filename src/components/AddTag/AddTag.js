@@ -15,6 +15,7 @@ import * as tagCloudActions from '../../actions/tag-cloud-actions'
 import Input from '../../components/system-components/Input/Input'
 
 class AddTag extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -22,6 +23,7 @@ class AddTag extends Component {
             volume:''
         }
     }
+
     submitForm = (e) => {
         e.preventDefault();
 
@@ -29,13 +31,15 @@ class AddTag extends Component {
         let { label, volume } = this.state;
 
 
-        addTag({label:label,volume:parseInt(volume), sentimentScore:1000});
+        addTag({label:label,volume:parseInt(volume), sentimentScore:1000, id:`${Math.random()}__new-tag`});
     };
+
     handleInputChange = (name, value) => {
         this.setState({
              [name]: value
         });
     };
+
     render() {
         let { label, volume } = this.state;
 

@@ -1,3 +1,1 @@
-export const PENDING_GET_TAG_BY_ID = 'PENDING_GET_TAG_BY_ID';
-export const SUCCES_GET_TAG_BY_ID = 'SUCCES_GET_TAG_BY_ID';
-export const ERROR_GET_TAG_BY_ID = 'ERROR_GET_TAG_BY_ID';
+export const GET_TAG_BY_ID = 'GET_TAG_BY_ID';

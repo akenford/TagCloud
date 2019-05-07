@@ -26,10 +26,11 @@ class TagCloud extends Component {
         let { value } = this.props.SearchBar;
         let filteredItems = tags.filter(item => item.id !== id);
 
-         updateTags(filteredItems);
+        updateTags(filteredItems);
 
-         filterTagByValue(Utils.filterArray(filteredItems, value));
+        filterTagByValue(Utils.filterArray(filteredItems, value));
     };
+
     renderTags = () => {
         let { filteredTags, tags, removeMode } = this.props.TagCloud;
 
@@ -47,9 +48,11 @@ class TagCloud extends Component {
             ) 
         })
     };
+
     renderNoResults = () => {
         return <div><h1>Nothing found...</h1></div>
     };
+
     render() {
         let { isLoaded } = this.props.isLoaded;
         let { filteredTags } = this.props.TagCloud;

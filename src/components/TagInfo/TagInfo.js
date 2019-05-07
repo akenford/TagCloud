@@ -10,7 +10,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 // actions
-import * as apiActions from '../../actions/api-actions'
+import * as tagInfoActions from '../../actions/tag-info-actions'
 
 // lodash
 import { map } from 'lodash';
@@ -18,45 +18,50 @@ import { map } from 'lodash';
 class TagInfo extends Component {
    
     componentDidMount() {
-        let { getTagById } = this.props.apiActions;
+        let { getTagById } = this.props.tagInfoActions;
         let decodedAString = decodeURIComponent(window.location.pathname).substr(1);
+
         getTagById(decodedAString);
     }
+
     renderTopMention() {
-        let { tag } = this.props.Tag;
+        let { tagInfo } = this.props.TagInfo;
         let sum = 0;
 
-        _.map(tag.sentiment, (qty) => sum += qty);
+        _.map(tagInfo.sentiment, (qty) => sum += qty);
 
           return <Mention name={'Total:'}  value={sum}/>
     }
-    renderMentions() {
-        let { tag } = this.props.Tag;
 
-        return _.map(tag.sentiment, (qty, name) => {
+    renderMentions() {
+        let { tagInfo } = this.props.TagInfo;
+
+        return _.map(tagInfo.sentiment, (qty, name) => {
 
             return <Mention key={name} name={name}  value={qty}/>
 
         });
     }
-    renderPageTypes() {
-        let { tag } = this.props.Tag;
 
-        return _.map(tag.pageType, (qty, name) => {
+    renderPageTypes() {
+        let { tagInfo } = this.props.TagInfo;
+
+        return _.map(tagInfo.pageType, (qty, name) => {
            
             return <PageTypes key={name} name={name} value={qty} />
             
           });
     }
+
     render() {
         let { isLoaded } = this.props.isLoaded;
-        let { tag } = this.props.Tag;
+        let { tagInfo } = this.props.TagInfo;
 
         if(!isLoaded) return <div><h1>Loading....</h1></div>;
 
     return (
         <div className='tag-info'>
-             <h1 className='tag-info-caption'>{tag.label}</h1>
+             <h1 className='tag-info-caption'>{tagInfo.label}</h1>
             <h3>Mentions</h3>
             <div className='mentions-container'>
                 {this.renderTopMention()}
@@ -69,18 +74,18 @@ class TagInfo extends Component {
         </div>
     )
     }
-};
+}
 
 function mapStateToProps(state) {
     return {
-        Tag: state.TagInfo,
+        TagInfo: state.TagInfo,
         isLoaded: state.isLoaded
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        apiActions: bindActionCreators(apiActions, dispatch),
+        tagInfoActions: bindActionCreators(tagInfoActions, dispatch),
     }
 }
 

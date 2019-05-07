@@ -8,11 +8,14 @@ import { bindActionCreators } from 'redux'
 // actions
 import * as tagCloudActions from '../../actions/tag-cloud-actions'
 
-//compoinents
+//components
 import InputCheckbox from '../system-components/InputCheckbox/InputCheckbox'
 
-
 class RemoveTag extends Component {
+
+    checkRemoveOpportunity = () => {
+
+    };
 
     render() {
         let { switchRemoveMode } = this.props.tagCloudActions;

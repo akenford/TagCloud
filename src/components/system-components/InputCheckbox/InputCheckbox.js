@@ -2,27 +2,23 @@
 import React, { Component } from 'react'
 
 class InputCheckbox extends Component {
-    constructor() {
-        super();
-        this.state = {isChecked: false};
-    }
-    handleChange() {
+
+    handleChange = () => {
         let { handleRemoveMode, removeMode } = this.props;
         handleRemoveMode(!removeMode);
+    };
 
-        this.setState({isChecked: !this.state.isChecked});
-    }
     render() {
-        let { isChecked } = this.state;
+        let { removeMode } = this.props;
 
         return (
             <div className='input-checkbox-cnt'>
                 <p>R Mode</p>
                 <input
                     type='checkbox'
-                    onChange={this.handleChange.bind(this)}
+                    onChange={this.handleChange}
                     id='toggle_today_summary'
-                    checked={isChecked}/>
+                    checked={removeMode}/>
                 <div className='toggle'>
                     <label htmlFor='toggle_today_summary'>
                         <i></i>

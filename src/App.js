@@ -33,8 +33,8 @@ class App extends Component {
                 <Layout>
                     <Switch>
                         <Route exact path='/' component={HomePage}/>
-                        {/*<Route path='/:tagId'  component={TagPage}/>*/}
-                        <Route path='/add-tag'  component={AddPage}/>
+                        <Route exact path='/add-tag' component={AddPage}/>
+                        <Route exact path='/:tagId' component={TagPage}/>
                     </Switch>
                 </Layout>
             </Router>
