@@ -13,10 +13,6 @@ import InputCheckbox from '../system-components/InputCheckbox/InputCheckbox'
 
 class RemoveTag extends Component {
 
-    checkRemoveOpportunity = () => {
-
-    };
-
     render() {
         let { switchRemoveMode } = this.props.tagCloudActions;
         let { removeMode } = this.props.TagCloud;

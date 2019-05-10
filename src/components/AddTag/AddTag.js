@@ -18,10 +18,7 @@ class AddTag extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            label:'',
-            volume:''
-        }
+        this.state = { label:'',volume:'' }
     }
 
     submitForm = (e) => {
@@ -29,7 +26,6 @@ class AddTag extends Component {
 
         let { addTag } = this.props.tagCloudActions;
         let { label, volume } = this.state;
-
 
         addTag({label:label,volume:parseInt(volume), sentimentScore:1000, id:`${Math.random()}__new-tag`});
     };

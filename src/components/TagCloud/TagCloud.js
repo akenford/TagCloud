@@ -15,7 +15,6 @@ import { Tag } from '../../components/Tag/Tag'
 // utills
 import Utils from '../../utills/Utills/Utills'
 
-
 class TagCloud extends Component {
 
     removeTagById = (e, id) => {
