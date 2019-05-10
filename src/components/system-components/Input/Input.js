@@ -3,7 +3,8 @@ import React, { Component, Fragment } from "react"
 
 class Input extends Component {
     static defaultProps = {
-        isNeedShowRemoveIcon:false
+        isNeedShowRemoveIcon:false,
+        autoFocus: false
     };
 
     handleChange = ({ target }) => {
@@ -29,7 +30,7 @@ class Input extends Component {
     };
 
     render() {
-        let { inputClass, inputType, inputPlaceholder, inputValue, inputName, required }  = this.props;
+        let { inputClass, inputType, inputPlaceholder, inputValue, inputName, required, autoFocus }  = this.props;
 
         return (
             <Fragment>
@@ -37,7 +38,7 @@ class Input extends Component {
                 <input
                     className={inputClass}
                     required={required}
-                    autoFocus={true}
+                    autoFocus={autoFocus}
                     type={inputType}
                     name={inputName}
                     placeholder={inputPlaceholder}

@@ -31,12 +31,13 @@ class SearchBar extends Component {
             <form className={'search-bar'}>
                 <Input
                     isNeedShowRemoveIcon={true}
+                    autoFocus={true}
                     inputClass='search-bar--search'
                     required={false}
                     inputType='text'
                     inputName='search-bar'
                     inputValue={this.props.SearchBar.value}
-                    inputPlaceholder='Search tags'
+                    inputPlaceholder='Search'
                     inputOnChange={this.handleChange}/>
             </form>
         )
