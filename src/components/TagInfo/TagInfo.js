@@ -12,9 +12,6 @@ import { connect } from 'react-redux'
 // actions
 import * as tagInfoActions from '../../actions/tag-info-actions'
 
-// lodash/map
-import { map } from 'lodash';
-
 class TagInfo extends Component {
    
     componentDidMount() {
@@ -26,17 +23,14 @@ class TagInfo extends Component {
 
     renderTopMention() {
         let { tagInfo } = this.props.TagInfo;
-        let sum = 0;
 
-        _.map(tagInfo.sentiment, (qty) => sum += qty);
-
-          return <Mention name={'Total:'}  value={sum}/>
+        return <Mention name={'Total:'}  value={tagInfo.getTopMention}/>
     }
 
     renderMentions() {
         let { tagInfo } = this.props.TagInfo;
 
-        return _.map(tagInfo.sentiment, (qty, name) => {
+        return _.map(tagInfo.getSentiment, (qty, name) => {
 
             return <Mention key={name} name={name}  value={qty}/>
 
@@ -46,7 +40,7 @@ class TagInfo extends Component {
     renderPageTypes() {
         let { tagInfo } = this.props.TagInfo;
 
-        return _.map(tagInfo.pageType, (qty, name) => {
+        return _.map(tagInfo.getPageType, (qty, name) => {
            
             return <PageTypes key={name} name={name} value={qty} />
             
@@ -61,7 +55,7 @@ class TagInfo extends Component {
 
     return (
         <div className='tag-info'>
-             <h1 className='tag-info-caption'>{tagInfo.label}</h1>
+             <h1 className='tag-info-caption'>{tagInfo.getLabel}</h1>
             <h3>Mentions</h3>
             <div className='mentions-container'>
                 {this.renderTopMention()}

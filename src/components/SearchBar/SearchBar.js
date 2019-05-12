@@ -17,7 +17,7 @@ import Utils from '../../utills/Utills/Utills'
 
 class SearchBar extends Component {
 
-    handleChange = (name, val) => {
+    handleChange = (name = '', val= '') => {
         let { filterTagByValue } = this.props.tagCloudActions;
         let { setSearchBarValue } = this.props.searchBarActions;
         let { tags } = this.props.TagCloud;

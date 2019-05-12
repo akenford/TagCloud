@@ -4,7 +4,7 @@ import React, { Component, Fragment } from "react"
 class Input extends Component {
     static defaultProps = {
         isNeedShowRemoveIcon:false,
-        autoFocus: false
+        autoComplete: 'off'
     };
 
     handleChange = ({ target }) => {
@@ -14,7 +14,7 @@ class Input extends Component {
 
     handleReset = () => {
         let { inputOnChange } = this.props;
-        inputOnChange('', '');
+        inputOnChange();
     };
 
     renderRemoveIcon = () => {
@@ -30,12 +30,22 @@ class Input extends Component {
     };
 
     render() {
-        let { inputClass, inputType, inputPlaceholder, inputValue, inputName, required, autoFocus }  = this.props;
+        let {
+            inputClass,
+            inputType,
+            inputPlaceholder,
+            inputValue,
+            inputName,
+            required,
+            autoFocus,
+            autoComplete
+        }  = this.props;
 
         return (
             <Fragment>
                 {this.renderRemoveIcon()}
                 <input
+                    autoComplete={autoComplete}
                     className={inputClass}
                     required={required}
                     autoFocus={autoFocus}
